@@ -1,10 +1,13 @@
-def main(func,a):
-     def wrap(a):
+def main(func):
+     def wrap():
              print("Hello Welcome")
-             func(a)
+             func()
              print("bye")
      return wrap
  
+
 @main
-def abc(no=10):
-     print("Lalit",no)
+def abc():
+     print("Lalit")
+b=main(abc)
+b()
