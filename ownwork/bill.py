@@ -17,7 +17,9 @@ def func1(unit):
     print(*map(lambda p:p[0],subcat),sep="\n")
     print("==============================================="*3)
     choice=int(input("Enter Phase:"))
-    if choice>=len(subcat) or choice<0:print("Wrong Input");return
+    if choice>=len(subcat) or choice<=0:
+        print("Wrong Input")
+        return
     cal=OrderedDict({50:320,150:390})
     if unit>200:cal[unit-150]=490
     maincal(cal,unit,subcat[choice-1][1])
@@ -35,7 +37,9 @@ def func3(unit):
     print(*map(lambda p:p[0],subcat),sep="\n")
     print("==============================================="*3)
     choice=int(input("Enter Phase:"))
-    if choice>=len(subcat) or choice<0:print("Wrong Input");return
+    if choice>=len(subcat) or choice<=0:
+        print("Wrong Input")
+        return  
     cal=OrderedDict({200:410})
     if unit>200:cal[unit-200]=480
     maincal(cal,unit,subcat[choice-1][1])
@@ -75,15 +79,20 @@ if __name__=="__main__":
             0:("[0] Exit","")}
 
     choice=1
+    
     while choice!=0:
-        print("==============================================="*3,)
-        print(*map(lambda p:p[0],maincat.values()),sep="\n")
-        print("==============================================="*3,)
-        choice=int(input("Enter Bill Type Index Number:"))
-        choice=choice if choice!=0 else exit()
-        unit=int(input("Enter unit:"))
-        if unit<=0:
-            print("Wrong unit please enter one among the option")
-            continue
-        maincat[choice][1](unit) if choice in maincat else print("Wrong Input")
-        input("End.............")
+        try:
+            print("==============================================="*3,)
+            print(*map(lambda p:p[0],maincat.values()),sep="\n")
+            print("==============================================="*3,)
+            choice=int(input("Enter Bill Type Index Number:"))
+            choice=choice if choice!=0 and choice>0 and choice<len(maincat) else exit()
+            unit=int(input("Enter unit:"))
+            if unit<=0:
+                print("Wrong unit please enter one among the option")
+                continue
+            maincat[choice][1](unit) if choice in maincat else print("Wrong Input")
+            input("End.............")
+            
+        except Exception as e:
+            print("invalid input",e)
