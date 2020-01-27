@@ -26,10 +26,11 @@ def func1(unit):
 
 
 def func2(unit):
+    
     print("==============================================="*3)
     cal=OrderedDict({30:150,20:320,150:390})
     if unit>200:cal[unit-150]=490   
-    print("Bill is:",amt,"Rs.")
+    #print("Bill is:",amt,"Rs.")
     maincal(cal,unit,5)
 
 def func3(unit):
@@ -81,18 +82,18 @@ if __name__=="__main__":
     choice=1
     
     while choice!=0:
-        try:
-            print("==============================================="*3,)
-            print(*map(lambda p:p[0],maincat.values()),sep="\n")
-            print("==============================================="*3,)
-            choice=int(input("Enter Bill Type Index Number:"))
-            choice=choice if choice!=0 and choice>0 and choice<len(maincat) else exit()
-            unit=int(input("Enter unit:"))
-            if unit<=0:
-                print("Wrong unit please enter one among the option")
-                continue
-            maincat[choice][1](unit) if choice in maincat else print("Wrong Input")
-            input("End.............")
+        #try:
+        print("==============================================="*3,)
+        print(*map(lambda p:p[0],maincat.values()),sep="\n")
+        print("==============================================="*3,)
+        choice=int(input("Enter Bill Type Index Number:"))
+        choice=choice if choice!=0 and choice>0 and choice<len(maincat) else exit()
+        unit=int(input("Enter unit:"))
+        if unit<=0:
+            print("Wrong unit please enter one among the option")
+            continue
+        maincat[choice][1](unit) if choice in maincat else print("Wrong Input")
+        input("End.............")
             
-        except Exception as e:
-            print("invalid input",e)
+        # except Exception as e:
+        #     print("invalid input",e)
