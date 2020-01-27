@@ -5,8 +5,8 @@ class Base:
     def __init__(self):
         itre_if_unit_not_valid=1
         while itre_if_unit_not_valid:
-            unit=int(input("Enter unit:"))
-            itre_if_unit_not_valid=1 if unit<=0 else 0
+            self.unit=int(input("Enter unit:"))
+            itre_if_unit_not_valid=1 if self.unit<=0 else 0
 
     def calof1to3(self,cal,phase):
         for i in cal:
