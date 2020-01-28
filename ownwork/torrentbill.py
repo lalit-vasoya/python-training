@@ -1,5 +1,4 @@
 from collections import OrderedDict
-
 def maincal(cal,unit,phase):
     amt=0
     for i in cal:

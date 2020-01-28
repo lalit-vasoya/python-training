@@ -14,12 +14,12 @@ if __name__=='__main__':
     
     try:
         print("==============================================="*3,)
-        print(*map(lambda p:p[0],maincat.values()),sep="\n")
+        print(*map(lambda p:p[0],maincat.values()),sep="\n") #Print on console option of the Bill Type
         print("==============================================="*3,)
         CHOICE=int(input("Enter Bill Type Index Number:"))
 
-        if CHOICE<0 or CHOICE>len(maincat):
-            print(f"Input in between 0 to {len(maincat)}")
+        if CHOICE<0 or CHOICE>=len(maincat):
+            print(f"Input in between 0 to {len(maincat)-1}")
         else:
             if CHOICE==0:
                 exit()
